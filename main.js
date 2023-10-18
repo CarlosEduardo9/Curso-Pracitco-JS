@@ -12,6 +12,7 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 function toggleDesktopMenu() { 
   desktopMenu.classList.toggle('inactive');
+  aside.classList.add('inactive');
 
 }
 function toggleMobileMenu() {
