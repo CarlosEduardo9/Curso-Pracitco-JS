@@ -3,27 +3,27 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const MenuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside= document.querySelector('.product-detail');
+const shoppingCartConteiner= document.querySelector('#shoppingCartConteiner');
 const cardContainer= document.querySelector('.cards-container');
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 MenuHamIcon.addEventListener('click', toggleMobileMenu);
-menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+menuCarritoIcon.addEventListener('click', toggleCarritoshoppingCartConteiner);
 
 function toggleDesktopMenu() { 
   desktopMenu.classList.toggle('inactive');
-  aside.classList.add('inactive');
+  shoppingCartConteiner.classList.add('inactive');
 
 }
 function toggleMobileMenu() {
-  aside.classList.add('inactive');
+  shoppingCartConteiner.classList.add('inactive');
   mobileMenu.classList.toggle('inactive');
 }
-function toggleCarritoAside() {
-  
+function toggleCarritoshoppingCartConteiner() {
+shoppingCartConteiner
  mobileMenu.classList.add('inactive');
- aside.classList.toggle('inactive');
+ shoppingCartConteiner.classList.toggle('inactive');
 }
 
 const productsList = []; // este seria el array que devolveria el backend. 
@@ -43,7 +43,6 @@ productsList.push({
   price: 600,
   image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
-
 
 
 /*
