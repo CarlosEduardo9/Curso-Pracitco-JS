@@ -5,25 +5,45 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCartConteiner= document.querySelector('#shoppingCartConteiner');
 const cardContainer= document.querySelector('.cards-container');
-
+const productDetailConteiner= document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 MenuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoshoppingCartConteiner);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 
 function toggleDesktopMenu() { 
+
   desktopMenu.classList.toggle('inactive');
   shoppingCartConteiner.classList.add('inactive');
-
+  productDetailConteiner.classList.add('inactive');
 }
 function toggleMobileMenu() {
-  shoppingCartConteiner.classList.add('inactive');
   mobileMenu.classList.toggle('inactive');
+  shoppingCartConteiner.classList.add('inactive');
+  productDetailConteiner.classList.add('inactive');
+
+  
 }
 function toggleCarritoshoppingCartConteiner() {
-shoppingCartConteiner
+
  mobileMenu.classList.add('inactive');
  shoppingCartConteiner.classList.toggle('inactive');
+ desktopMenu.classList.add('inactive');
+ productDetailConteiner.classList.add('inactive');
+}
+
+function openProductDetailAside() {
+  productDetailConteiner.classList.remove('inactive');
+  mobileMenu.classList.remove('inactive');
+  mobileMenu.classList.add('inactive');
+
+}
+function closeProductDetailAside() {
+  productDetailConteiner.classList.add('inactive');
+  shoppingCartConteiner.classList.add('inactive');
+  desktopMenu.classList.add('inactive');
 }
 
 const productsList = []; // este seria el array que devolveria el backend. 
@@ -60,6 +80,8 @@ productsList.push({
 </div> 
 */
 
+
+
 function rederProducts(array) {
 
   for (const product of array) {
@@ -70,6 +92,7 @@ function rederProducts(array) {
     // product = {name, price, image} --> product.image.
     const img = document.createElement('img')
     img.setAttribute('src', product.image)
+    img.addEventListener('click', openProductDetailAside);
   
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
